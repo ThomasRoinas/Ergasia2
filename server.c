@@ -26,9 +26,54 @@ int main()
     product catalog[20];
     init_catalog(catalog);
 
-    int fd[2];
+    int p1[2], p2[2];
     int errno;
     char buf;
+
+    pipe1(p1);
+    pipe2(p2);
+
+    int pid1;
+
+    pid1 = fork();
+
+    if(pid1 < 0)
+    {
+        printf("Error in fork\n");
+        return -1;
+    }
+
+    else if(pid1 > 0)
+    {
+        printf("Parent process\n");
+
+        int pid[5];
+
+        for(int i=0; i<5; i++)
+        {
+            pid[i] = fork();
+
+            if(pid[i] < 0)
+            {
+                printf("Error in fork\n");
+                return -1;
+            }
+
+            else if(pid[i] == 0)
+            {
+                printf("Child[%d] process\n", i);
+
+                
+
+            }
+
+           
+        }
+        
+
+    }
+
+
 
 
     
