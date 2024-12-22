@@ -30,11 +30,11 @@ int main()
     int errno;
     char buf;
 
+
     
     
     
     
-    
-    eturn 0;
+    return 0;
 
 }
