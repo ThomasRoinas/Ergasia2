@@ -37,6 +37,12 @@ int main()
 
     pid1 = fork();
 
+    if(pipe(p1) == -1)
+    {
+        printf("Error in pipe1\n");
+        return -1;
+    }
+
     if(pid1 < 0)
     {
         printf("Error in fork\n");
@@ -63,7 +69,14 @@ int main()
             {
                 printf("Child[%d] process\n", i);
 
-                
+                for(i=0; i<10; i++)
+                {
+                    int arithmos;
+
+                    arithmos = rand() % 20;
+
+
+                }
 
             }
 
@@ -72,8 +85,6 @@ int main()
         
 
     }
-
-
 
 
     
