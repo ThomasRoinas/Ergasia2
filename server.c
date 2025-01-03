@@ -21,13 +21,9 @@ void init_catalog(product catalog[])
     }
 }
 
-void parent_orders(product catalog[], int p1[], int p2[])
+void parent_orders(product catalog[], int p1[], int p2[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
 {
     int i;
-    int sum_parag;
-    int sum_succparag;
-    int sum_failparag;
-    int sum_price;
 
    close(p1[0]);
    close(p2[1]);
@@ -73,9 +69,8 @@ void child_orders(int p1[2], int p2[2])
     close(p1[1]);
     close(p2[0]);
 
-    for(i=0; i<20; i++)
+    for(i=0; i<10; i++)
     {
-        
         arithmos = rand() % 20;
 
         write(p2[1], &arithmos, sizeof(arithmos));
@@ -98,8 +93,8 @@ int main()
     int errno;
     char buf;
 
-    pipe1(p1);
-    pipe2(p2);
+    pipe(p1);
+    pipe(p2);
 
     int pid1;
 
@@ -121,9 +116,22 @@ int main()
     {
         printf("Parent process\n");
 
-        parent_orders(catalog, p1, p2);
+        int sum_parag; 
+        int sum_succparag;
+        int sum_failparag;
+        int sum_price;
+
+        parent_orders(catalog, p1, p2, sum_parag, sum_succparag, sum_failparag, sum_price);
 
         int pid[5];
+
+        wait(NULL);
+
+        printf("Results:\n");
+        printf("Paraggelies: %d\n", sum_parag);
+        printf("Success paraggelies: %d\n", sum_succparag);
+        printf("Fail paraggelies: %d\n", sum_failparag);
+        printf("Kostos: %d\n", sum_price);
 
         for(int i=0; i<5; i++)
         {
@@ -140,9 +148,9 @@ int main()
                 printf("Child[%d] process\n", i);
 
                 child_orders(p1, p2);
-            }
 
-           
+                exit(0);
+            }
         }
         
 
