@@ -68,6 +68,7 @@ void parent_orders(product catalog[], int p1[], int p2[])
 void child_orders(int p1[2], int p2[2])
 {
     int i;
+    int arithmos;
 
     close(p1[1]);
     close(p2[0]);
@@ -75,6 +76,16 @@ void child_orders(int p1[2], int p2[2])
     for(i=0; i<20; i++)
     {
         
+        arithmos = rand() % 20;
+
+        write(p2[1], &arithmos, sizeof(arithmos));
+
+        char buf[100];
+        read(p1[0], buf, sizeof(buf));
+
+        printf("Child[%d] ordered product %d: %s\n", getpid(), arithmos, buf);
+
+        sleep(1);
     }
 }
 
@@ -110,7 +121,7 @@ int main()
     {
         printf("Parent process\n");
 
-
+        parent_orders(catalog, p1, p2);
 
         int pid[5];
 
@@ -128,15 +139,7 @@ int main()
             {
                 printf("Child[%d] process\n", i);
 
-                for(i=0; i<10; i++)
-                {
-                    int arithmos;
-
-                    arithmos = rand() % 20;
-
-
-                }
-
+                child_orders(p1, p2);
             }
 
            
