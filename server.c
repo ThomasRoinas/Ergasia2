@@ -118,8 +118,6 @@ int main()
 
     int pid[5];
 
-    wait(NULL);
-
     for(int i=0; i<5; i++)
     {
         pid[i] = fork();
