@@ -22,7 +22,7 @@ void init_catalog(product catalog[])
     }
 }
 
-void parent_orders(product catalog[], int p1[], int p2[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price)
 {
     int i;
 
@@ -33,34 +33,36 @@ void parent_orders(product catalog[], int p1[], int p2[], int sum_parag, int sum
    {
         int arithmos; 
         read(p2[0], &arithmos, sizeof(arithmos));
-        sum_parag = sum_parag + 1;
+        *sum_parag = *sum_parag + 1;
 
         if(arithmos >= 0 && arithmos < 20)
         {
             if(catalog[arithmos].item_count > 0)
             {
-                sum_succparag++;
-                sum_price = sum_price + catalog[arithmos].price;
+                *sum_succparag++;
+                *sum_price = *sum_price + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 write (p1[1], "success", sizeof("success"));
             }
             
             else
             {
-                sum_failparag++;
+                *sum_failparag++;
                 write (p1[1], "fail", sizeof("fail"));
             }
         }
 
         else
         {
-            sum_failparag++;
+            *sum_failparag++;
             write (p1[1], "fail", sizeof("fail"));
         }
 
         sleep(1);
     }  
-    //////////////////////////
+    
+    close(p1[1]);
+    close(p1[0]);
 }
 
 void child_orders(int p1[2], int p2[2])
@@ -84,7 +86,9 @@ void child_orders(int p1[2], int p2[2])
 
         sleep(1);
     }
-    //////////////////////////
+    
+    close(p1[1]);
+    close(p1[1]);
 }
 
 int main()
@@ -95,9 +99,6 @@ int main()
     int i;
     int p1[2], p2[2];
     char buf;
-
-    pipe(p1);
-    pipe(p2);
 
     if(pipe(p1) == -1)
     {
@@ -140,7 +141,7 @@ int main()
         }
     }
 
-    parent_orders(catalog, p1, p2, sum_parag, sum_succparag, sum_failparag, sum_price);  
+    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);  
 
     for(i=0; i<5; i++)
     {
