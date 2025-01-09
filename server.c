@@ -22,6 +22,8 @@ void init_catalog(product catalog[])
         strcpy(catalog[i].description, "Product(i)");
         catalog[i].price = i*3;
         catalog[i].item_count = 2;
+        catalog[i].aithmata = 0;
+        catalog[i].temaxiasell = 0;
     }
 }
 
