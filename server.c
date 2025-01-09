@@ -10,6 +10,9 @@ typedef struct
     char description[100];
     int price;
     int item_count;
+    int aithmata;
+    int temaxiasell;
+    int xrhstesfail[100];
 } product;
 
 void init_catalog(product catalog[])    
@@ -19,6 +22,8 @@ void init_catalog(product catalog[])
         strcpy(catalog[i].description, "Product(i)");
         catalog[i].price = i*3;
         catalog[i].item_count = 2;
+        catalog[i].aithmata = 0;
+        catalog[i].temaxiasell = 0;
     }
 }
 
@@ -34,6 +39,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         int arithmos; 
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
+        catalog[arithmos].aithmata++;
 
         if(arithmos >= 0 && arithmos < 20)
         {
@@ -42,6 +48,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
+                catalog[arithmos].temaxiasell++;
                 write (p1[1], "success", sizeof("success"));
             }
             
@@ -89,6 +96,23 @@ void child_orders(int p1[2], int p2[2])
     
     close(p1[0]);
     close(p2[1]);
+}
+
+void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+{
+    int i;
+
+    for(i=0; i<20; i++)
+    {
+        printf("Product %d: %s\n", i, catalog[i].description);
+        printf("Aithmata: %d\n", catalog[i].aithmata);
+        printf("Temaxia sell: %d\n", catalog[i].temaxiasell);
+    }
+
+    printf("Paraggelies: %d\n", sum_parag);
+    printf("Success paraggelies: %d\n", sum_succparag);
+    printf("Fail paraggelies: %d\n", sum_failparag);
+    printf("Kostos: %d\n", sum_price);
 }
 
 int main()
@@ -148,11 +172,7 @@ int main()
         wait(NULL);
     }
 
-    printf("Results:\n");
-    printf("Paraggelies: %d\n", sum_parag);
-    printf("Success paraggelies: %d\n", sum_succparag);
-    printf("Fail paraggelies: %d\n", sum_failparag);
-    printf("Kostos: %d\n", sum_price);
+    anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
 
     return 0;
 }
