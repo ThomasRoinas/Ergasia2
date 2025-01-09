@@ -106,6 +106,12 @@ int main()
         return -1;
     }
 
+    if(pipe(p2) == -1)
+    {
+        printf("Error in pipe2\n");
+        return -1;
+    }
+
     if(pid1 < 0)
     {
         printf("Error in fork\n");
