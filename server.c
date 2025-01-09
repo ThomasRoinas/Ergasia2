@@ -72,7 +72,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     close(p2[0]);
 }
 
-void child_orders(int p1[2], int p2[2])
+void child_orders(int p1[2], int p2[2], product catalog[])
 {
     int i;
     int arithmos;
@@ -89,7 +89,7 @@ void child_orders(int p1[2], int p2[2])
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
-        printf("Child[%d] ordered product %d: %s\n", getpid(), arithmos, buf);
+        printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
 
         sleep(1);
     }
@@ -162,7 +162,7 @@ int main()
         {
             printf("Child[%d] process\n", i);
 
-            child_orders(p1, p2);
+            child_orders(p1, p2, catalog);
 
             exit(0);
         }
