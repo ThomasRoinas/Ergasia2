@@ -10,6 +10,9 @@ typedef struct
     char description[100];
     int price;
     int item_count;
+    int aithmata;
+    int temaxiasell;
+    int xrhstesfail[100];
 } product;
 
 void init_catalog(product catalog[])    
