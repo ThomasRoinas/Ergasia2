@@ -179,6 +179,7 @@ int main()
     }
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
+    statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
 
     return 0;
 }
