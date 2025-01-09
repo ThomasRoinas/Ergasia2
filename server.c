@@ -14,7 +14,7 @@ typedef struct
 
 void init_catalog(product catalog[])    
 {
-    for(int i = 0; i<20; i++)
+    for(int i=0; i<20; i++)
     {
         strcpy(catalog[i].description, "Product(i)");
         catalog[i].price = i*3;
@@ -33,28 +33,28 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
    {
         int arithmos; 
         read(p2[0], &arithmos, sizeof(arithmos));
-        *sum_parag = *sum_parag + 1;
+        (*sum_parag) = (*sum_parag) + 1;
 
         if(arithmos >= 0 && arithmos < 20)
         {
             if(catalog[arithmos].item_count > 0)
             {
-                *sum_succparag++;
-                *sum_price = *sum_price + catalog[arithmos].price;
+                (*sum_succparag)++;
+                (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 write (p1[1], "success", sizeof("success"));
             }
             
             else
             {
-                *sum_failparag++;
+                (*sum_failparag)++;
                 write (p1[1], "fail", sizeof("fail"));
             }
         }
 
         else
         {
-            *sum_failparag++;
+            (*sum_failparag)++;
             write (p1[1], "fail", sizeof("fail"));
         }
 
@@ -62,7 +62,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     }  
     
     close(p1[1]);
-    close(p1[0]);
+    close(p2[0]);
 }
 
 void child_orders(int p1[2], int p2[2])
@@ -87,8 +87,8 @@ void child_orders(int p1[2], int p2[2])
         sleep(1);
     }
     
-    close(p1[1]);
-    close(p1[1]);
+    close(p1[0]);
+    close(p2[1]);
 }
 
 int main()
