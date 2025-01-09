@@ -91,6 +91,7 @@ int main()
     product catalog[20];
     init_catalog(catalog);
 
+    int i;
     int p1[2], p2[2];
     char buf;
 
@@ -145,6 +146,11 @@ int main()
     printf("Success paraggelies: %d\n", sum_succparag);
     printf("Fail paraggelies: %d\n", sum_failparag);
     printf("Kostos: %d\n", sum_price);
+
+    for(i=0; i<5; i++)
+    {
+        wait(NULL);
+    }
 
     return 0;
 }
