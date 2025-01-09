@@ -59,6 +59,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int sum_parag, int sum
 
         sleep(1);
     }  
+    //////////////////////////
 }
 
 void child_orders(int p1[2], int p2[2])
@@ -82,6 +83,7 @@ void child_orders(int p1[2], int p2[2])
 
         sleep(1);
     }
+    //////////////////////////
 }
 
 int main()
@@ -96,10 +98,6 @@ int main()
     pipe(p1);
     pipe(p2);
 
-    int pid1;
-
-    pid1 = fork();
-
     if(pipe(p1) == -1)
     {
         printf("Error in pipe1\n");
@@ -112,52 +110,44 @@ int main()
         return -1;
     }
 
-    if(pid1 < 0)
+    printf("Parent process\n");
+
+    int sum_parag = 0;
+    int sum_succparag = 0;
+    int sum_failparag = 0;
+    int sum_price = 0;
+
+    int pid[5];
+
+    wait(NULL);
+
+    printf("Results:\n");
+    printf("Paraggelies: %d\n", sum_parag);
+    printf("Success paraggelies: %d\n", sum_succparag);
+    printf("Fail paraggelies: %d\n", sum_failparag);
+    printf("Kostos: %d\n", sum_price);
+
+    for(int i=0; i<5; i++)
     {
-        printf("Error in fork\n");
-        return -1;
-    }
+        pid[i] = fork();
 
-    else if(pid1 > 0)
-    {
-        printf("Parent process\n");
-
-        int sum_parag; 
-        int sum_succparag;
-        int sum_failparag;
-        int sum_price;
-
-        parent_orders(catalog, p1, p2, sum_parag, sum_succparag, sum_failparag, sum_price);
-
-        int pid[5];
-
-        wait(NULL);
-
-        printf("Results:\n");
-        printf("Paraggelies: %d\n", sum_parag);
-        printf("Success paraggelies: %d\n", sum_succparag);
-        printf("Fail paraggelies: %d\n", sum_failparag);
-        printf("Kostos: %d\n", sum_price);
-
-        for(int i=0; i<5; i++)
+        if(pid[i] < 0)
         {
-            pid[i] = fork();
+            printf("Error in fork\n");
+            return -1;
+        }
 
-            if(pid[i] < 0)
-            {
-                printf("Error in fork\n");
-                return -1;
-            }
+        else if(pid[i] == 0)
+        {
+            printf("Child[%d] process\n", i);
 
-            else if(pid[i] == 0)
-            {
-                printf("Child[%d] process\n", i);
+            child_orders(p1, p2);
 
-                child_orders(p1, p2);
-
-                exit(0);
-            }
+            exit(0);
         }
     }
+
+    parent_orders(catalog, p1, p2, sum_parag, sum_succparag, sum_failparag, sum_price);  
+    
     return 0;
 }
