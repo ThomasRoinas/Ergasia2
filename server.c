@@ -108,11 +108,14 @@ void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failpa
         printf("Aithmata: %d\n", catalog[i].aithmata);
         printf("Temaxia sell: %d\n", catalog[i].temaxiasell);
     }
+}
 
+void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+{
     printf("\nParaggelies: %d\n", sum_parag);
-    printf("Success paraggelies: %d\n", sum_succparag);
-    printf("Fail paraggelies: %d\n", sum_failparag);
-    printf("Kostos: %d\n", sum_price);
+    printf("Paraggelies success: %d\n", sum_succparag);
+    printf("Paraggelies fail: %d\n", sum_failparag);
+    printf("Kostsos: %d\n", sum_price);
 }
 
 int main()
