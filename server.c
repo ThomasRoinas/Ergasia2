@@ -49,13 +49,13 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 catalog[arithmos].temaxiasell++;
-                write (p1[1], "success", sizeof("success"));
+                write (p1[1], "Purchase complete, your total is", sizeof("Purchase complete, your total is"));
             }
             
             else
             {
                 (*sum_failparag)++;
-                write (p1[1], "fail", sizeof("fail"));
+                write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
         }
 
