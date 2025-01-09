@@ -60,7 +60,9 @@ void parent_orders(product catalog[], int p1[], int p2[], int sum_parag, int sum
 
         sleep(1);
     }  
-    //////////////////////////
+    
+    close(p1[1]);
+    close(p1[0]);
 }
 
 void child_orders(int p1[2], int p2[2])
@@ -84,7 +86,9 @@ void child_orders(int p1[2], int p2[2])
 
         sleep(1);
     }
-    //////////////////////////
+    
+    close(p1[1]);
+    close(p1[1]);
 }
 
 int main()
@@ -95,9 +99,6 @@ int main()
     int i;
     int p1[2], p2[2];
     char buf;
-
-    pipe(p1);
-    pipe(p2);
 
     if(pipe(p1) == -1)
     {
