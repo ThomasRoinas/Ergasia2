@@ -71,7 +71,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     close(p1[1]);
     close(p2[0]);
 
-    anafora(catalog, *sum_parag, *sum_succparag, *sum_failparag, *sum_price);
+    anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
 }
 
 void child_orders(int p1[2], int p2[2])
