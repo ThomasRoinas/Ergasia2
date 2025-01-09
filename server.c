@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <time.h>
 
 typedef struct 
 {
@@ -79,6 +80,8 @@ void child_orders(int p1[2], int p2[2], product catalog[])
 
     close(p1[1]);
     close(p2[0]);
+
+    srand(time(NULL));
 
     for(i=0; i<10; i++)
     {
