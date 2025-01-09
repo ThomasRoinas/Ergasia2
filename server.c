@@ -92,7 +92,6 @@ int main()
     init_catalog(catalog);
 
     int p1[2], p2[2];
-    int errno;
     char buf;
 
     pipe(p1);
@@ -121,12 +120,6 @@ int main()
 
     wait(NULL);
 
-    printf("Results:\n");
-    printf("Paraggelies: %d\n", sum_parag);
-    printf("Success paraggelies: %d\n", sum_succparag);
-    printf("Fail paraggelies: %d\n", sum_failparag);
-    printf("Kostos: %d\n", sum_price);
-
     for(int i=0; i<5; i++)
     {
         pid[i] = fork();
@@ -149,5 +142,11 @@ int main()
 
     parent_orders(catalog, p1, p2, sum_parag, sum_succparag, sum_failparag, sum_price);  
     
+    printf("Results:\n");
+    printf("Paraggelies: %d\n", sum_parag);
+    printf("Success paraggelies: %d\n", sum_succparag);
+    printf("Fail paraggelies: %d\n", sum_failparag);
+    printf("Kostos: %d\n", sum_price);
+
     return 0;
 }
