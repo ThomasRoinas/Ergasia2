@@ -93,9 +93,11 @@ void child_orders(int p1[2], int p2[2], product catalog[])
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
+        printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
+
         sleep(1);
     }
-    
+
     close(p1[0]);
     close(p2[1]);
 }
