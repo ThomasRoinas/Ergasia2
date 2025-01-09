@@ -119,19 +119,19 @@ int main()
     int sum_failparag = 0;
     int sum_price = 0;
 
-    int pid[5];
+    int pid;
 
     for(int i=0; i<5; i++)
     {
-        pid[i] = fork();
+        pid = fork();
 
-        if(pid[i] < 0)
+        if(pid < 0)
         {
             printf("Error in fork\n");
             return -1;
         }
 
-        else if(pid[i] == 0)
+        else if(pid == 0)
         {
             printf("Child[%d] process\n", i);
 
