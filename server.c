@@ -98,6 +98,23 @@ void child_orders(int p1[2], int p2[2])
     close(p2[1]);
 }
 
+void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+{
+    int i;
+
+    for(i=0; i<20; i++)
+    {
+        printf("Product %d: %s\n", i, catalog[i].description);
+        printf("Aithmata: %d\n", catalog[i].aithmata);
+        printf("Temaxia sell: %d\n", catalog[i].temaxiasell);
+    }
+
+    printf("Paraggelies: %d\n", sum_parag);
+    printf("Success paraggelies: %d\n", sum_succparag);
+    printf("Fail paraggelies: %d\n", sum_failparag);
+    printf("Kostos: %d\n", sum_price);
+}
+
 int main()
 {
     product catalog[20];
@@ -155,11 +172,7 @@ int main()
         wait(NULL);
     }
 
-    printf("Results:\n");
-    printf("Paraggelies: %d\n", sum_parag);
-    printf("Success paraggelies: %d\n", sum_succparag);
-    printf("Fail paraggelies: %d\n", sum_failparag);
-    printf("Kostos: %d\n", sum_price);
+    anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
 
     return 0;
 }
