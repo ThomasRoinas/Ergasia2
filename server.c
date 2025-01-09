@@ -77,7 +77,6 @@ void child_orders(int p1[2], int p2[2], product catalog[])
 {
     int i;
     int arithmos;
-    char buf[100];
 
     close(p1[1]);
     close(p2[0]);
