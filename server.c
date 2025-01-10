@@ -129,7 +129,7 @@ int main()
     init_catalog(catalog);
 
     int i;
-    int p1[2], p2[2];
+    int pipes[5][2][2];
 
     char buf[100];
 
@@ -140,14 +140,14 @@ int main()
 
     for(i=0; i<5; i++)
     {
-
-    if(pipe(p1) == -1)
+    
+    if(pipe(pipes[i][0]) == -1)
     {
         printf("Error in pipe1\n");
         return -1;
     }
 
-    if(pipe(p2) == -1)
+    if(pipe(pipes[i][1]) == -1)
     {
         printf("Error in pipe2\n");
         return -1;
@@ -165,13 +165,13 @@ int main()
         {
             printf("Child[%d] process\n", i);
 
-            child_orders(p1, p2, catalog); 
+            child_orders(pipes[i][0], pipes[i][1], catalog); 
         }
     }
 
     for(i=0; i<5; i++)
     {
-        parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+        parent_orders(catalog, pipes[i][0], pipes[i][1], &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
         wait(NULL);
     }
 
