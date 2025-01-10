@@ -139,7 +139,7 @@ int main()
 
     for(i=0; i<5; i++)
     {
-        int p1[1], p2[2];
+        int p1[2], p2[2];
 
     if(pipe(p1) == -1)
     {
