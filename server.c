@@ -170,6 +170,8 @@ int main()
 
             child_orders(p1, p2, catalog); 
         }
+
+        waitpid(pid, NULL, 0);
     }
 
     parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
@@ -178,7 +180,7 @@ int main()
     {
         wait(NULL);
     }
-    
+
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
 
