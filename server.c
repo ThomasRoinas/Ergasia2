@@ -176,7 +176,7 @@ int main()
 
     for(i=0; i<5; i++)
     {
-        waitpid(-1, NULL, 0);
+        wait(NULL);
     }
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
