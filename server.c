@@ -83,20 +83,22 @@ void child_orders(int p1[2], int p2[2], product catalog[])
 
     srand(time(NULL));
 
-    for(i=0; i<10; i++)
+    for(int j=0; j<5; j++)
     {
-        arithmos = rand() % 20;
+        for(i=0; i<10; i++)
+        {
+            arithmos = rand() % 20;
 
-        write(p2[1], &arithmos, sizeof(arithmos));
+            write(p2[1], &arithmos, sizeof(arithmos));
 
-        char buf[100];
-        read(p1[0], buf, sizeof(buf));
+            char buf[100];
+            read(p1[0], buf, sizeof(buf));
 
-        printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
-
-        sleep(1);
+            printf("Client %d: %s: %d\n", j, buf, catalog[arithmos].price);
+        
+            sleep(1);
+        }
     }
-
     close(p1[0]);
     close(p2[1]);
 }
