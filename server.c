@@ -169,6 +169,8 @@ int main()
             printf("Child[%d] process\n", i);
 
             child_orders(p1, p2, catalog); 
+
+            wait(NULL);
         }
     }
 
