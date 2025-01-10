@@ -36,8 +36,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
    close(p2[1]);
 
    for(i=0; i<50; i++)
-   {
-        int arithmos; 
+   { 
+        int arithmos;
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
         catalog[arithmos].aithmata++;
