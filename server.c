@@ -172,10 +172,10 @@ int main()
             exit(0);
         }
 
-        else
+        parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+
+        for(i=0; i<5; i++)
         {
-            parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
-            
             wait(NULL);
         }
 
