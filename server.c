@@ -170,10 +170,8 @@ int main()
 
             child_orders(p1, p2, catalog); 
 
-            exit(0);
+            waitpid(pid[i], NULL, 0);
         }
-
-        waitpid(pid[i], NULL, 0);
     }
 
     parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
