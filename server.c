@@ -129,6 +129,7 @@ int main()
     init_catalog(catalog);
 
     int i;
+    int p1[2], p2[2];
 
     char buf[100];
 
@@ -139,7 +140,6 @@ int main()
 
     for(i=0; i<5; i++)
     {
-        int p1[2], p2[2];
 
     if(pipe(p1) == -1)
     {
@@ -167,13 +167,12 @@ int main()
 
             child_orders(p1, p2, catalog); 
         }
+    }
 
-        else
-        {
-            parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
-
-            wait(NULL);
-        }
+    for(i=0; i<5; i++)
+    {
+        parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+        wait(NULL);
     }
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
