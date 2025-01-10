@@ -81,7 +81,7 @@ void child_orders(int p1[2], int p2[2], product catalog[])
     close(p1[1]);
     close(p2[0]);
 
-    srand(time(NULL));
+    //srand(time(NULL));
 
 
         for(i=0; i<10; i++)
@@ -126,6 +126,8 @@ void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_pri
 
 int main()
 {
+    srand(time(NULL));
+    
     product catalog[20];
     init_catalog(catalog);
 
@@ -170,12 +172,14 @@ int main()
 
             child_orders(p1, p2, catalog); 
         }
-
-        wait(NULL);
-        parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
     }
 
-    //parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+
+    for(i=0; i<5; i++)
+    {
+        wait(NULL);
+    }
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
