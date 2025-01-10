@@ -172,6 +172,10 @@ int main()
     for(i=0; i<5; i++)
     {
         parent_orders(catalog, pipes[i][0], pipes[i][1], &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+    }
+
+    for(i=0; i<5; i++)
+    {
         wait(NULL);
     }
 
