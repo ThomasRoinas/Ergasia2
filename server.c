@@ -172,15 +172,9 @@ int main()
 
         else
         {
-            close(p1[0]);
-            close(p2[1]);
-
             parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
 
             wait(NULL);
-
-            close(p1[1]);
-            close(p2[0]);
         }
     } 
 
