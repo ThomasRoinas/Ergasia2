@@ -170,10 +170,19 @@ int main()
             exit(0);
         }
 
-        wait(NULL);
-    }
+        else
+        {
+            close(p1[0]);
+            close(p2[1]);
 
-    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);  
+            parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+
+            wait(NULL);
+
+            close(p1[1]);
+            close(p2[0]);
+        }
+    } 
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
