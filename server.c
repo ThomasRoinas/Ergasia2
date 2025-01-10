@@ -151,7 +151,7 @@ int main()
 
     int pid;
 
-    for(int i=0; i<5; i++)
+    for(i=0; i<5; i++)
     {
         pid = fork();
 
@@ -173,10 +173,11 @@ int main()
 
     for(i=0; i<5; i++)
     {
+        parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price); 
         wait(NULL);
     }
 
-    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);  
+    //parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);  
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
