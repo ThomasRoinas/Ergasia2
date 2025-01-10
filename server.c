@@ -169,9 +169,9 @@ int main()
             printf("Child[%d] process\n", i);
 
             child_orders(p1, p2, catalog); 
-
-            wait(pid[i]);
         }
+
+        waitpid(pid[i], NULL, 0);
     }
 
     parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
