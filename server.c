@@ -152,34 +152,32 @@ int main()
     int sum_failparag = 0;
     int sum_price = 0;
 
-    int pid[5];
+    //int pid[5];
 
     for(i=0; i<5; i++)
     {
-        pid[i] = fork();
+        pid_t pid = fork();
 
-        if(pid[i] < 0)
+        if(pid < 0)
         {
             printf("Error in fork\n");
             return -1;
         }
 
-        else if(pid[i] == 0)
+        else if(pid == 0)
         {
             printf("Child[%d] process\n", i);
 
             child_orders(p1, p2, catalog); 
+        }
 
-            waitpid(pid[i], NULL, 0);
+        else
+        {
+            wait(NULL);
         }
     }
 
     parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
-
-    for(i=0; i<5; i++)
-    {
-        wait(NULL);
-    }    
 
     anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
