@@ -101,6 +101,8 @@ void child_orders(int p1[2], int p2[2], product catalog[])
    // }
     close(p1[0]);
     close(p2[1]);
+
+    exit(0);
 }
 
 void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
@@ -171,7 +173,7 @@ int main()
 
                 child_orders(p1, p2, catalog);
 
-                exit(0);
+                
             } 
         }
 
