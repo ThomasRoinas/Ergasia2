@@ -164,8 +164,6 @@ int main()
 
         else if(pid == 0)
         {
-            printf("Child[%d] process\n", i);
-
             child_orders(p1, p2, catalog); 
         }
     }
