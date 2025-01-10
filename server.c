@@ -137,9 +137,6 @@ int main()
     int sum_succparag = 0;
     int sum_failparag = 0;
     int sum_price = 0;
-
-    for(i=0; i<5; i++)
-    {
     
     if(pipe(pipes[i][0]) == -1)
     {
@@ -153,6 +150,9 @@ int main()
         return -1;
     }
     
+    for(i=0; i<5; i++)
+    {
+
         pid_t pid = fork();
 
         if(pid < 0)
@@ -169,11 +169,8 @@ int main()
         }
     }
 
-    for(i=0; i<5; i++)
-    {
         parent_orders(catalog, pipes[i][0], pipes[i][1], &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
-    }
-
+    
     for(i=0; i<5; i++)
     {
         wait(NULL);
