@@ -132,14 +132,10 @@ int main()
 
     char buf[100];
 
-    int sum_parag;
-    int sum_succparag;
-    int sum_failparag;
-    int sum_price;
-    int sum_aithmata;
-    int sum_temaxiasell;
-    int sum_price;
-    int sum_aithmata;
+    int sum_parag = 0;
+    int sum_succparag = 0;
+    int sum_failparag = 0;
+    int sum_price = 0;
 
     for(i=0; i<5; i++)
     {
