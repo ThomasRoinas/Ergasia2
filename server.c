@@ -129,8 +129,21 @@ int main()
     init_catalog(catalog);
 
     int i;
-    int p1[2], p2[2];
-    char buf;
+
+    char buf[100];
+
+    int sum_parag = 0;
+    int sum_succparag = 0;
+    int sum_failparag = 0;
+    int sum_price = 0;
+    int sum_aithmata = 0;
+    int sum_temaxiasell = 0;
+    int sum_price = 0;
+    int sum_aithmata = 0;
+
+    for(i=0; i<5; i++)
+    {
+        int p1[1], p2[2];
 
     if(pipe(p1) == -1)
     {
@@ -143,16 +156,7 @@ int main()
         printf("Error in pipe2\n");
         return -1;
     }
-
-    printf("Parent process\n");
-
-    int sum_parag = 0;
-    int sum_succparag = 0;
-    int sum_failparag = 0;
-    int sum_price = 0;
-
-    for(i=0; i<5; i++)
-    {
+    
         pid_t pid = fork();
 
         if(pid < 0)
