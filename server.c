@@ -35,7 +35,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
    close(p1[0]);
    close(p2[1]);
 
-   for(i=0; i<20; i++)
+   for(i=0; i<50; i++)
    {
         int arithmos; 
         read(p2[0], &arithmos, sizeof(arithmos));
@@ -83,22 +83,19 @@ void child_orders(int p1[2], int p2[2], product catalog[])
 
     srand(time(NULL));
 
+    for(i=0; i<10; i++)
+    {
+        arithmos = rand() % 20;
 
-        for(i=0; i<10; i++)
-        {
-            arithmos = rand() % 20;
+        write(p2[1], &arithmos, sizeof(arithmos));
 
-            write(p2[1], &arithmos, sizeof(arithmos));
+        char buf[100];
+        read(p1[0], buf, sizeof(buf));
 
-            char buf[100];
-            read(p1[0], buf, sizeof(buf));
+        printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
 
-            printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
-        
-            printf("Child[%d] making request %d\n", i, arithmos);
-
-            sleep(1);
-        }
+        sleep(1);
+    }
 
     close(p1[0]);
     close(p2[1]);
