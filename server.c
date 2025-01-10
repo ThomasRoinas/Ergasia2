@@ -81,7 +81,7 @@ void child_orders(int p1[2], int p2[2], product catalog[])
     close(p1[1]);
     close(p2[0]);
 
-    //srand(time(NULL));
+    srand(time(NULL));
 
 
         for(i=0; i<10; i++)
@@ -95,6 +95,8 @@ void child_orders(int p1[2], int p2[2], product catalog[])
 
             printf("Client %d: %s: %d\n", i, buf, catalog[arithmos].price);
         
+            printf("Child[%d] making request %d\n", i, arithmos);
+
             sleep(1);
         }
 
@@ -125,9 +127,7 @@ void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_pri
 }
 
 int main()
-{
-    srand(time(NULL));
-    
+{    
     product catalog[20];
     init_catalog(catalog);
 
@@ -153,8 +153,6 @@ int main()
     int sum_succparag = 0;
     int sum_failparag = 0;
     int sum_price = 0;
-
-    //int pid[5];
 
     for(i=0; i<5; i++)
     {
