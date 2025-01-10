@@ -170,7 +170,7 @@ int main()
 
             child_orders(p1, p2, catalog); 
 
-            wait(NULL);
+            wait(pid[i]);
         }
     }
 
