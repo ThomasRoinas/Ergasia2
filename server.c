@@ -38,6 +38,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
 
    for(i=0; i<50; i++)
    { 
+
+        char buff[100];
         int arithmos;
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
@@ -52,7 +54,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
                 catalog[arithmos].item_count--;
                 catalog[arithmos].temaxiasell++;
                 
-                write (p1[1], sprintf("Purchase complete, your total is %d", catalog[arithmos].price), sizeof("Purchase complete, your total is"));
+                sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
+                write (p1[1], buff, sizeof(buff));
             }
             
             else
