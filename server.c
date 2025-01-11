@@ -21,7 +21,7 @@ void init_catalog(product catalog[])
 {
     for(int i=0; i<20; i++)
     {
-        strcpy(catalog[i].description, "Product(i)");
+        sprintf(catalog[i].description, "Product(%d)", i);
         catalog[i].price = i*3;
         catalog[i].item_count = 2;
         catalog[i].aithmata = 0;
