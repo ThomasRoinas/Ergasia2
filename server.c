@@ -31,9 +31,14 @@ void init_catalog(product catalog[])
 
 int globalval = 0;
 
-void set_globalval()
+void set_globalvals()
 {
     globalval = 1;
+}
+
+void set_globalvalf()
+{
+    globalval = 0;
 }
 
 void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price, int globalval)
@@ -54,7 +59,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         {
             if(catalog[arithmos].item_count > 0)
             {
-                globalval = 1;
+                set_globalvals();
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
@@ -64,7 +69,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             
             else
             {   
-                globalval = 0;
+                set_globalvalf();
                 (*sum_failparag)++;
                 write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
