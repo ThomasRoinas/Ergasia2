@@ -44,23 +44,21 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         char buff[100];
         char client_id[100];
         int arithmos;
-        int pricetotal = 0;
 
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
         catalog[arithmos].aithmata++;
 
-        if(arithmos >= 0 && arithmos < 20)
-        {
+       // if(arithmos >= 0 && arithmos < 20)
+        //{
             if(catalog[arithmos].item_count > 0)
             {
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
-                pricetotal = pricetotal + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 catalog[arithmos].temaxiasell++;
                 
-                sprintf(buff, "Purchase complete, your total is %d", pricetotal);
+                sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
                 write (p1[1], buff, sizeof(buff));
             }
             
@@ -69,13 +67,13 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
                 (*sum_failparag)++;
                 write (p1[1], "Products unavailable, request failed", sizeof("Products unavailable, request failed"));
             }
-        }
+       // }
 
-        else
-        {
-            (*sum_failparag)++;
-            write (p1[1], "fail", sizeof("fail"));
-        }
+        //else
+        //{
+          //  (*sum_failparag)++;
+          // write (p1[1], "fail", sizeof("fail"));
+        //}
 
         sleep(1);
     }  
