@@ -29,18 +29,6 @@ void init_catalog(product catalog[])
     }
 }
 
-int globalval;
-
-void set_globalvals()
-{
-    globalval = 1;
-}
-
-void set_globalvalf()
-{
-    globalval = 0;
-}
-
 void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price)
 {
     int i;
@@ -59,17 +47,16 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         {
             if(catalog[arithmos].item_count > 0)
             {
-                set_globalvals();
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 catalog[arithmos].temaxiasell++;
-                write (p1[1], "Purchase complete, your total is", sizeof("Purchase complete, your total is"));
+                
+                write (p1[1], sprintf("Purchase complete, your total is %d", catalog[arithmos].price), sizeof("Purchase complete, your total is"));
             }
             
             else
             {   
-                set_globalvalf();
                 (*sum_failparag)++;
                 write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
@@ -80,8 +67,6 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             (*sum_failparag)++;
             write (p1[1], "fail", sizeof("fail"));
         }
-
-        write(p1[1], &globalval, sizeof(globalval));
 
         sleep(1);
     }  
@@ -109,21 +94,7 @@ void child_orders(int p1[2], int p2[2], product catalog[])
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
-        int globalval;
-
-        read(p1[0], &globalval, sizeof(globalval));
-
-        if(globalval == 1)
-        {
-            printf("Client %d: Purchase complete, your total is\n", i);
-        }
-
-        else
-        {
-            printf("Client %d: products unavailable, request failed\n", i);
-        }
-
-        //printf("Client %d: %s\n", i, buf);
+        printf("Client %d: %s\n", i, buf);
 
         sleep(1);
     }
