@@ -64,7 +64,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             else
             {   
                 (*sum_failparag)++;
-                write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
+                write (p1[1], "Products unavailable, request failed", sizeof("Products unavailable, request failed"));
             }
         }
 
@@ -100,7 +100,7 @@ void child_orders(int p1[2], int p2[2], product catalog[])
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
-        printf("Client %d: %s\n", i, buf);
+        printf("Client %d: %s\n", getpid(), buf);
 
         sleep(1);
     }
