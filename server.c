@@ -115,7 +115,7 @@ void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_pri
     printf("\nParaggelies: %d\n", sum_parag);
     printf("Paraggelies success: %d\n", sum_succparag);
     printf("Paraggelies fail: %d\n", sum_failparag);
-    printf("Kostsos: %d\n", sum_price);
+    printf("Kostos: %d\n", sum_price);
 }
 
 int main()
