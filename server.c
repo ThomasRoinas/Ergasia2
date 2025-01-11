@@ -44,6 +44,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         char buff[100];
         char client_id[100];
         int arithmos;
+        int pricetotal = 0;
+
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
         catalog[arithmos].aithmata++;
@@ -54,10 +56,11 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             {
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
+                pricetotal = pricetotal + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
                 catalog[arithmos].temaxiasell++;
                 
-                sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
+                sprintf(buff, "Purchase complete, your total is %d", pricetotal);
                 write (p1[1], buff, sizeof(buff));
             }
             
