@@ -14,8 +14,6 @@ typedef struct
     int item_count;
     int aithmata;
     int temaxiasell;
-    char xrhstesfail[100];
-    int fail_count;
 } product;
 
 void init_catalog(product catalog[])    
@@ -27,7 +25,6 @@ void init_catalog(product catalog[])
         catalog[i].item_count = 2;
         catalog[i].aithmata = 0;
         catalog[i].temaxiasell = 0;
-        catalog[i].fail_count = 0;
     }
 }
 
@@ -40,7 +37,6 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
 
    for(i=0; i<50; i++)
    { 
-
         char buff[100];
         char client_id[100];
         int arithmos;
@@ -49,31 +45,22 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         (*sum_parag) = (*sum_parag) + 1;
         catalog[arithmos].aithmata++;
 
-       // if(arithmos >= 0 && arithmos < 20)
-        //{
-            if(catalog[arithmos].item_count > 0)
-            {
-                (*sum_succparag)++;
-                (*sum_price) = (*sum_price) + catalog[arithmos].price;
-                catalog[arithmos].item_count--;
-                catalog[arithmos].temaxiasell++;
+        if(catalog[arithmos].item_count > 0)
+        {
+            (*sum_succparag)++;
+            (*sum_price) = (*sum_price) + catalog[arithmos].price;
+            catalog[arithmos].item_count--;                
+            catalog[arithmos].temaxiasell++;
                 
-                sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
-                write (p1[1], buff, sizeof(buff));
-            }
+            sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
+            write (p1[1], buff, sizeof(buff));
+        }
             
-            else
-            {   
-                (*sum_failparag)++;
-                write (p1[1], "Products unavailable, request failed", sizeof("Products unavailable, request failed"));
-            }
-       // }
-
-        //else
-        //{
-          //  (*sum_failparag)++;
-          // write (p1[1], "fail", sizeof("fail"));
-        //}
+        else
+        {   
+           (*sum_failparag)++;
+           write (p1[1], "Products unavailable, request failed", sizeof("Products unavailable, request failed"));
+        }
 
         sleep(1);
     }  
