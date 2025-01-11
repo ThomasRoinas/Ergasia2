@@ -41,6 +41,11 @@ void set_globalvalf()
     globalval = 0;
 }
 
+void get_globalval()
+{
+    printf("Globalval: %d\n", globalval);
+}
+
 void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price, int globalval)
 {
     int i;
@@ -92,6 +97,8 @@ void child_orders(int p1[2], int p2[2], product catalog[], int globalval)
 {
     int i;
     int arithmos;
+
+    get_globalval();
 
     close(p1[1]);
     close(p2[0]);
