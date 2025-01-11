@@ -81,6 +81,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             write (p1[1], "fail", sizeof("fail"));
         }
 
+        write(p1[1], &globalval, sizeof(globalval));
+
         sleep(1);
     }  
     
@@ -108,6 +110,8 @@ void child_orders(int p1[2], int p2[2], product catalog[])
         read(p1[0], buf, sizeof(buf));
 
         int globalval;
+
+        read(p1[0], &globalval, sizeof(globalval));
 
         if(globalval == 1)
         {
