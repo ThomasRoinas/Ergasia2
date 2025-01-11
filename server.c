@@ -20,7 +20,7 @@ void init_catalog(product catalog[])
 {
     for(int i=0; i<20; i++)
     {
-        sprintf(catalog[i].description, "Product(%d)", i);
+        sprintf(catalog[i].description, "Product(%d)", i+1);
         catalog[i].price = i*3;
         catalog[i].item_count = 2;
         catalog[i].aithmata = 0;
@@ -105,7 +105,7 @@ void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failpa
 
     for(i=0; i<20; i++)
     {
-        printf("\nProduct %d: %s\n", i, catalog[i].description);
+        printf("\nProduct %d: %s\n", i+1, catalog[i].description);
         printf("Aithmata: %d\n", catalog[i].aithmata);
         printf("Temaxia sell: %d\n", catalog[i].temaxiasell);
     }
