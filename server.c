@@ -64,7 +64,6 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             else
             {   
                 (*sum_failparag)++;
-                strcpy(catalog[arithmos].xrhstesfail[catalog[arithmos].fail_count++], client_id);
                 write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
         }
