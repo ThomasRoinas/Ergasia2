@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <time.h>
+#include <stdbool.h>
 
 typedef struct 
 {
@@ -28,7 +29,14 @@ void init_catalog(product catalog[])
     }
 }
 
-void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price)
+int globalval = 0;
+
+void set_globalval()
+{
+    globalval = 1;
+}
+
+void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price, int globalval)
 {
     int i;
 
@@ -46,6 +54,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         {
             if(catalog[arithmos].item_count > 0)
             {
+                globalval = 1;
                 (*sum_succparag)++;
                 (*sum_price) = (*sum_price) + catalog[arithmos].price;
                 catalog[arithmos].item_count--;
@@ -54,7 +63,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             }
             
             else
-            {
+            {   
+                globalval = 0;
                 (*sum_failparag)++;
                 write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
@@ -73,7 +83,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     close(p2[0]);
 }
 
-void child_orders(int p1[2], int p2[2], product catalog[])
+void child_orders(int p1[2], int p2[2], product catalog[], int globalval)
 {
     int i;
     int arithmos;
@@ -92,7 +102,17 @@ void child_orders(int p1[2], int p2[2], product catalog[])
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
-        printf("Client %d: %s\n", i, buf);
+        if(globalval == 1)
+        {
+            printf("Client %d: Purchase complete, your total is\n", i);
+        }
+
+        else
+        {
+            printf("Client %d: products unavailable, request failed\n", i);
+        }
+
+        //printf("Client %d: %s\n", i, buf);
 
         sleep(1);
     }
@@ -132,6 +152,8 @@ int main()
     int p1[2];
     int p2[2];
 
+    bool flag;
+
     char buf[100];
 
     int sum_parag = 0;
@@ -164,11 +186,11 @@ int main()
 
         else if(pid == 0)
         {
-            child_orders(p1, p2, catalog); 
+            child_orders(p1, p2, catalog, globalval); 
         }
     }
 
-    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price);
+    parent_orders(catalog, p1, p2, &sum_parag, &sum_succparag, &sum_failparag, &sum_price, globalval);
     
     for(i=0; i<5; i++)
     {
