@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <time.h>
-#include <stdbool.h>
 
 typedef struct 
 {
