@@ -14,7 +14,8 @@ typedef struct
     int item_count;
     int aithmata;
     int temaxiasell;
-    int xrhstesfail[100];
+    char xrhstesfail[100];
+    int fail_count;
 } product;
 
 void init_catalog(product catalog[])    
@@ -26,6 +27,7 @@ void init_catalog(product catalog[])
         catalog[i].item_count = 2;
         catalog[i].aithmata = 0;
         catalog[i].temaxiasell = 0;
+        catalog[i].fail_count = 0;
     }
 }
 
@@ -40,6 +42,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
    { 
 
         char buff[100];
+        char client_id[100];
         int arithmos;
         read(p2[0], &arithmos, sizeof(arithmos));
         (*sum_parag) = (*sum_parag) + 1;
@@ -61,6 +64,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             else
             {   
                 (*sum_failparag)++;
+                strcpy(catalog[arithmos].xrhstesfail[catalog[arithmos].fail_count++], client_id);
                 write (p1[1], "products unavailable, request failed", sizeof("products unavailable, request failed"));
             }
         }
