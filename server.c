@@ -140,10 +140,6 @@ int main()
     int p1[2];
     int p2[2];
 
-    bool flag;
-
-    char buf[100];
-
     int sum_parag = 0;
     int sum_succparag = 0;
     int sum_failparag = 0;
@@ -163,7 +159,6 @@ int main()
     
     for(i=0; i<5; i++)
     {
-
         pid_t pid = fork();
 
         if(pid < 0)
