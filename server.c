@@ -193,7 +193,7 @@ int main()
 
         else if(pid == 0)
         {
-            child_orders(p1, p2, catalog, globalval); 
+            child_orders(p1, p2, catalog); 
         }
     }
 
