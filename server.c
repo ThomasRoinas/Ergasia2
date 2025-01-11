@@ -88,7 +88,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     close(p2[0]);
 }
 
-void child_orders(int p1[2], int p2[2], product catalog[], int globalval)
+void child_orders(int p1[2], int p2[2], product catalog[])
 {
     int i;
     int arithmos;
@@ -106,6 +106,8 @@ void child_orders(int p1[2], int p2[2], product catalog[], int globalval)
 
         char buf[100];
         read(p1[0], buf, sizeof(buf));
+
+        int globalval;
 
         if(globalval == 1)
         {
