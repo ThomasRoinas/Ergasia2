@@ -9,4 +9,21 @@ server.o : server.c eshop.h
 clean :
 	rm *.o server
 
+
 #Makefile
+
+# Οδηγίες:
+
+#  1) Xειαζόμαστε τα αρχεία: 
+
+#	  sever.c 
+#	  eshop.h
+# 	  makefile
+
+
+#  2) Εντολές:
+
+# 	  make server (ή make all ή make)
+#     ./server
+# 	  make clean
+
