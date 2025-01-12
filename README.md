@@ -15,6 +15,6 @@ make all (ή make server ή make)
 ./server    
 ```
 ```
-`make clean`
+make clean
 ``` 
 
