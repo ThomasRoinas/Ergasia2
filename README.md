@@ -11,7 +11,7 @@
 ``` 
 make all (ή make server ή make)
 ```
-```Makefile
+```
 ./server       
 ```
 ```
