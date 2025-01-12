@@ -1,18 +1,18 @@
 # Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ #
-* Header File: eshop.h   
-* Source File: server.c    
-* Makefile: makefile    
+* Header File: __eshop.h__   
+* Source File: __server.c__    
+* Makefile: __makefile__    
 
 ## Μέλη Ομάδας ##
-Τζάκης Διονύσιος - ΑΜ 2123214     
-Ροϊνάς Θωμάς ΑΜ - 2123014     
+- Τζάκης Διονύσιος - ΑΜ 2123214     
+- Ροϊνάς Θωμάς ΑΜ - 2123014     
 
 ## Οδηγίες για makefile ##
 ``` 
 make all (ή make server ή make)
 ```
 ```
-**./server**     
+./server       
 ```
 ```
 make clean
