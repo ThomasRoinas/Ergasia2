@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <time.h>
+#include <errno.h>
 
 typedef struct 
 {
@@ -133,13 +134,13 @@ int main()
     
     if(pipe(p1) == -1)
     {
-        printf("Error in pipe1\n");
+        perror("Error in pipe1\n");
         return -1;
     }
 
     if(pipe(p2) == -1)
     {
-        printf("Error in pipe2\n");
+        perror("Error in pipe2\n");
         return -1;
     }
     
@@ -149,7 +150,7 @@ int main()
 
         if(pid < 0)
         {
-            printf("Error in fork\n");
+            perror("Error in fork\n");
             return -1;
         }
 
