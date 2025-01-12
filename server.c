@@ -28,7 +28,7 @@ void init_catalog(product catalog[])
     }
 }
 
-void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, int *sum_price)
+void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *sum_succparag, int *sum_failparag, double *sum_price)
 {
     int i;
 
@@ -110,12 +110,12 @@ void anafora(product catalog[])
     }
 }
 
-void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+void statistics(int sum_parag, int sum_succparag, int sum_failparag, double sum_price)
 {
     printf("\nSunolikos arithmos paraggeliwn: %d\n", sum_parag);
     printf("Epituxhmenes Paraggelies: %d\n", sum_succparag);
     printf("Apotuxhmenes Paraggelies: %d\n", sum_failparag);
-    printf("Sunoliko kostos: %d\n", sum_price);
+    printf("Sunoliko kostos: %.2lf\n", sum_price);
 }
 
 int main()
