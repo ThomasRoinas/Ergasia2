@@ -1,6 +1,6 @@
 # Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ #
 * Header File: __server.h__   
-* Source File: __server.c__    
+* Source Code: __server.c__    
 * Makefile: __makefile__    
 
 ## Μέλη Ομάδας ##
