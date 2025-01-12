@@ -64,8 +64,8 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
         sleep(1);
     }  
     
-    //close(p1[1]);
-    //close(p2[0]);
+    close(p1[1]);
+    close(p2[0]);
 }
 
 void child_orders(int p1[2], int p2[2], product catalog[], int client_id)
@@ -92,8 +92,8 @@ void child_orders(int p1[2], int p2[2], product catalog[], int client_id)
         sleep(1);
     }
 
-    //close(p1[0]);
-    //close(p2[1]);
+    close(p1[0]);
+    close(p2[1]);
 
     exit(0);
 }
