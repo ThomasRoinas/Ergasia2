@@ -98,7 +98,7 @@ void child_orders(int p1[2], int p2[2], product catalog[], int client_id)
     exit(0);
 }
 
-void anafora(product catalog[], int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
+void anafora(product catalog[])
 {
     int i;
 
@@ -167,7 +167,7 @@ int main()
         wait(NULL);
     }
 
-    anafora(catalog, sum_parag, sum_succparag, sum_failparag, sum_price);
+    anafora(catalog);
     statistics(sum_parag, sum_succparag, sum_failparag, sum_price);
 
     return 0;
