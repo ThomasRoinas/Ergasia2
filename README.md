@@ -3,11 +3,11 @@ Header File: eshop.h
 Source File: server.c
 Makefile: makefile
 
-#Μέλη Ομάδας
+# Μέλη Ομάδας
 Τζάκης Διονύσιος - ΑΜ 2123214
 Ροϊνάς Θωμάς ΑΜ - 2123014
 
-#Οδηγίες για makefile
+# Οδηγίες για makefile
 make all (ή server ή make)
 ./server
 make clean
