@@ -51,7 +51,7 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
             catalog[arithmos_prod].item_count--;                
             catalog[arithmos_prod].temaxia_sell++;
                 
-            sprintf(buff, "Purchase complete, your total is %lf", catalog[arithmos_prod].price);
+            sprintf(buff, "Purchase complete, your total is %.2lf", catalog[arithmos_prod].price);
             write (p1[1], buff, sizeof(buff));
         }
             
