@@ -10,7 +10,7 @@
 typedef struct 
 {
     char description[100];
-    int price;
+    double price;
     int item_count;
     int aithmata;
     int temaxia_sell;
