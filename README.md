@@ -12,7 +12,7 @@
 make all (ή make server ή make)
 ```
 ```
-./server     
+**./server**     
 ```
 ```
 make clean
