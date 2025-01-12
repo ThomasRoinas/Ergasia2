@@ -13,7 +13,7 @@ typedef struct
     int price;
     int item_count;
     int aithmata;
-    int temaxiasell;
+    int temaxia_sell;
 } product;
 
 void init_catalog(product catalog[])    
@@ -24,7 +24,7 @@ void init_catalog(product catalog[])
         catalog[i].price = i;
         catalog[i].item_count = 2;
         catalog[i].aithmata = 0;
-        catalog[i].temaxiasell = 0;
+        catalog[i].temaxia_sell = 0;
     }
 }
 
@@ -38,20 +38,20 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
    for(i=0; i<50; i++)
    { 
         char buff[100];
-        int arithmos;
+        int arithmos_prod;
 
-        read(p2[0], &arithmos, sizeof(arithmos));
+        read(p2[0], &arithmos_prod, sizeof(arithmos_prod));
         (*sum_parag) = (*sum_parag) + 1;
-        catalog[arithmos].aithmata++;
+        catalog[arithmos_prod].aithmata++;
 
-        if(catalog[arithmos].item_count > 0)
+        if(catalog[arithmos_prod].item_count > 0)
         {
             (*sum_succparag)++;
-            (*sum_price) = (*sum_price) + catalog[arithmos].price;
-            catalog[arithmos].item_count--;                
-            catalog[arithmos].temaxiasell++;
+            (*sum_price) = (*sum_price) + catalog[arithmos_prod].price;
+            catalog[arithmos_prod].item_count--;                
+            catalog[arithmos_prod].temaxia_sell++;
                 
-            sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos].price);
+            sprintf(buff, "Purchase complete, your total is %d", catalog[arithmos_prod].price);
             write (p1[1], buff, sizeof(buff));
         }
             
@@ -68,10 +68,10 @@ void parent_orders(product catalog[], int p1[], int p2[], int *sum_parag, int *s
     close(p2[0]);
 }
 
-void child_orders(int p1[2], int p2[2], int client_id)
+void child_orders(int p1[2], int p2[2], int client_arithmos)
 {
     int i;
-    int arithmos;
+    int arithmos_prod;
 
     close(p1[1]);
     close(p2[0]);
@@ -80,14 +80,14 @@ void child_orders(int p1[2], int p2[2], int client_id)
 
     for(i=0; i<10; i++)
     {
-        arithmos = rand() % 20;
+        arithmos_prod = rand() % 20;
 
-        write(p2[1], &arithmos, sizeof(arithmos));
+        write(p2[1], &arithmos_prod, sizeof(arithmos_prod));
 
         char buf[100];
         read(p1[0], buf, sizeof(buf));
 
-        printf("Client %d: %s\n", client_id, buf);
+        printf("Client %d: %s\n", client_arithmos, buf);
 
         sleep(1);
     }
@@ -104,18 +104,18 @@ void anafora(product catalog[])
 
     for(i=0; i<20; i++)
     {
-        printf("\nProduct %d: %s\n", i+1, catalog[i].description);
-        printf("Aithmata: %d\n", catalog[i].aithmata);
-        printf("Temaxia sell: %d\n", catalog[i].temaxiasell);
+        printf("\nPerigrafi Proiontos %d: %s\n", i+1, catalog[i].description);
+        printf("Aithmata gia agora: %d\n", catalog[i].aithmata);
+        printf("Temaxia Agorastikan: %d\n", catalog[i].temaxia_sell);
     }
 }
 
 void statistics(int sum_parag, int sum_succparag, int sum_failparag, int sum_price)
 {
-    printf("\nParaggelies: %d\n", sum_parag);
-    printf("Paraggelies success: %d\n", sum_succparag);
-    printf("Paraggelies fail: %d\n", sum_failparag);
-    printf("Kostos: %d\n", sum_price);
+    printf("\nSunolikos arithmos paraggeliwn: %d\n", sum_parag);
+    printf("Epituxhmenes Paraggelies: %d\n", sum_succparag);
+    printf("Apotuxhmenes Paraggelies: %d\n", sum_failparag);
+    printf("Sunoliko kostos: %d\n", sum_price);
 }
 
 int main()
