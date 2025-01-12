@@ -1,4 +1,4 @@
-# Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ
+# Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ #
 * Header File: eshop.h   
 * Source File: server.c    
 * Makefile: makefile    
