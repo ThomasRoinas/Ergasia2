@@ -130,7 +130,7 @@ int main()
     int sum_parag = 0;
     int sum_succparag = 0;
     int sum_failparag = 0;
-    int sum_price = 0;
+    double sum_price = 0;
     
     if(pipe(p1) == -1)
     {
