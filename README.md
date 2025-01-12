@@ -1,5 +1,5 @@
 # Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ #
-* Header File: __eshop.h__   
+* Header File: __server.h__   
 * Source File: __server.c__    
 * Makefile: __makefile__    
 
