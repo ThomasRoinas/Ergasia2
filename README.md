@@ -8,7 +8,8 @@
 Ροϊνάς Θωμάς ΑΜ - 2123014     
 
 # Οδηγίες για makefile
+```
 make all (ή server ή make)      
 ./server     
 make clean     
- 
+```
