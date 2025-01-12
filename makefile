@@ -9,3 +9,4 @@ server.o : server.c eshop.h
 clean :
 	rm *.o server
 
+#Makefile
