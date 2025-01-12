@@ -3,11 +3,11 @@
 * Source File: server.c    
 * Makefile: makefile    
 
-# Μέλη Ομάδας 
+## Μέλη Ομάδας ##
 Τζάκης Διονύσιος - ΑΜ 2123214     
 Ροϊνάς Θωμάς ΑΜ - 2123014     
 
-# Οδηγίες για makefile
+## Οδηγίες για makefile ##
 ``` 
 make all (ή make server ή make)
 ```
