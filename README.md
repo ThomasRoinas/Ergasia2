@@ -1,7 +1,7 @@
 # Repository για την Εργασία 2 - Προγραμματισμός ΙΙΙ
 Header File: eshop.h
-Source File: server.c
-Makefile: makefile
+ Source File: server.c
+ Makefile: makefile
 
 # Μέλη Ομάδας
 Τζάκης Διονύσιος - ΑΜ 2123214
