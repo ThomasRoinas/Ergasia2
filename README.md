@@ -8,11 +8,13 @@
 - Ροϊνάς Θωμάς ΑΜ - 2123014     
 
 ## Οδηγίες για makefile ##
-
-`make all (ή make server ή make)`
-
-`./server`    
-
+```
+make all (ή make server ή make)
+```
+```
+./server    
+```
+```
 `make clean`
-   
+``` 
 
