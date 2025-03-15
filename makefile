@@ -1,4 +1,4 @@
-#Makefile for server
+#Makefile for server-client.c
 
 #instructions for make: (command line / terminal)
 # 1. type make-server
