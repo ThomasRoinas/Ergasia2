@@ -1,4 +1,4 @@
-// Code for the server-client 
+// Code for the server-client.c
 //Both server and client are in the same file, so the code is for both the server and the client
 
 // Libraries
