@@ -1,3 +1,10 @@
+#Makefile for server
+
+#instructions for make: (command line / terminal)
+# 1. type make 
+# 2. type ./server
+# 3. type make clean to remove the object files and the executable
+
 all: server
 
 server: server.o
@@ -8,22 +15,3 @@ server.o : server.c server.h
 
 clean :
 	rm *.o server
-
-
-#Makefile
-
-# Οδηγίες:
-
-#  1) Xειαζόμαστε τα αρχεία: 
-
-#	  sever.c 
-#	  eshop.h
-# 	  makefile
-
-
-#  2) Εντολές:
-
-# 	  make server (ή make all ή make)
-#     ./server
-# 	  make clean
-
