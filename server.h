@@ -1,4 +1,5 @@
 // Header file for the server-client program
+// Declare the struct and functions
 
 void init_catalog(product catalog[])   
 void parent_orders(product catalog[], int p1[2], int p2[2], int *sum_parag, int *sum_succparag, int *sum_failparag, double *sum_price)
