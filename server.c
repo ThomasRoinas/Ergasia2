@@ -1,4 +1,5 @@
-// Code for the server
+// Code for the server-client 
+//Both server and client are in the same file, so the code is for both the server and the client
 
 // Libraries
 #include <stdio.h>        
