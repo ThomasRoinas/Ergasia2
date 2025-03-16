@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
    server-client-pipes 
-</p>
+</h1>
 
 Code for creating inter-process communication (IPC) among server and client replicating an e-shop process. The inter-process comunication is done through pipes (pipeline) in a UNIX based system. 
 
