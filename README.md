@@ -28,6 +28,8 @@ Comments in the code of each file is also provided for better understanding of t
 - __server-client.c__    
 - __makefile__
 
+>These files are needed to run the program in your system as is.
+
 ## Makefile instructions ##
 ```Makefile
 make server-client
