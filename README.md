@@ -25,9 +25,6 @@ __Comments__ in the code of each file is also provided for better understanding 
 
 <hr/>
 
->[!NOTE]
->Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
-
 >[!IMPORTANT]
 >Mandatory files to run program as is
 >- __server-client.h__   
@@ -45,3 +42,5 @@ make server-client
 
 make clean
 ``` 
+>[!NOTE]
+>Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
