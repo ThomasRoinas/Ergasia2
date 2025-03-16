@@ -18,6 +18,8 @@ Lastly, int the __main()__ function the product catalog array is intialized, the
 
 Comments in the code of each file is also provided for better understanding of the contents.
 
+## Mandatory files to run the program ##
+
 * Header File: __server-client.h__   
 * Source Code: __server-client.c__    
 * Makefile: __makefile__
