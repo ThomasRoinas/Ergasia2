@@ -23,7 +23,7 @@ Lastly, int the __main()__ function the product catalog array is intialized, the
 
 __Comments__ in the code of each file is also provided for better understanding of the contents.
 
----
+--
 <hr/>
 
 >[!NOTE]
