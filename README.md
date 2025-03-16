@@ -29,6 +29,7 @@ Comments in the code of each file is also provided for better understanding of t
 <h2 align="center">
    Mandatory files 
 </h2>
+
 - __server-client.h__   
 - __server-client.c__    
 - __makefile__
@@ -38,6 +39,7 @@ Comments in the code of each file is also provided for better understanding of t
 <h2 align="center">
    Makefile instructions
 </h2>
+
 ```
 make server-client
 
