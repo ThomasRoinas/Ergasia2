@@ -21,9 +21,9 @@ Comments in the code of each file is also provided for better understanding of t
 
 ## Mandatory files to run the program ##
 
-__server-client.h__   
-__server-client.c__    
-__makefile__
+- __server-client.h__   
+- __server-client.c__    
+- __makefile__
 
 ## Makefile instructions ##
 ```
