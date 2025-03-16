@@ -29,13 +29,11 @@ Comments in the code of each file is also provided for better understanding of t
 - __makefile__
 
 ## Makefile instructions ##
-```
+```makefile
 make server-client
-```
-```
+
 ./server-client   
-```
-```
+
 make clean
 ``` 
 
