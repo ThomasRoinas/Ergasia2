@@ -7,7 +7,9 @@ Code for creating inter-process communication (IPC) among server and client repl
 >[!NOTE]
 >The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
 
-## Code explanation ##
+<h2 align="center">
+   Code explanation
+</h2>
 
 The details for each product is declared in the structure __product__. The __init_catalog__ function is used for initializing an array containing 20 products and setting each detail to store a value. 
 
@@ -24,15 +26,18 @@ Comments in the code of each file is also provided for better understanding of t
 >[!NOTE]
 >Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
 
-## Mandatory files to run the program ##
-
+<h2 align="center">
+   Mandatory files 
+</h2>
 - __server-client.h__   
 - __server-client.c__    
 - __makefile__
 
 >These files are needed to run the program in your system as is.
 
-## Makefile instructions ##
+<h2 align="center">
+   Makefile instructions
+</h2>
 ```
 make server-client
 
