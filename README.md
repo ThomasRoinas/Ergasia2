@@ -37,7 +37,7 @@ __Comments__ in the code of each file is also provided for better understanding 
 >In case your system lacks makefile support you can compile each file one by one seperately.
 
 <h2 align="center">
-   Makefile instructions for running as is
+   Makefile instructions (for running as is)
 </h2>
 
 >Considering the files are present in your system.
