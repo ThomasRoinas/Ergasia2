@@ -44,7 +44,7 @@ __Comments__ in the code of each file is also provided for better understanding 
 
 >Considering the files are present in your system.
 
-1.```
+```
 make server-client
 ```
 ```
