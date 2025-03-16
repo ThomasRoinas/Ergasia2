@@ -19,6 +19,8 @@ Lastly, int the __main()__ function the product catalog array is intialized, the
 
 Comments in the code of each file is also provided for better understanding of the contents.
 
+Another version implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
+
 ## Mandatory files to run the program ##
 
 - __server-client.h__   
