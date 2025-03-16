@@ -4,6 +4,8 @@ Code for creating inter-process communication among server and client replicatin
 
 The server and client code is implemented in one single file (server-client). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
 
+## Code explanation ##
+
 The details for each product is declared in the structure __product__. The __init_catalog__ function is used for initializing an array containing 20 products and setting each detail to store a value. 
 
 For handling the incoming orders the __parent_orders()__ function recieves orders (50) from the clients through pipe read() checks if the product selected is in stock and sends an update to the client, write() pipe, about their purchase. The amount of orders __sum_parag__ increases by 1, the request for the specific product is also increased by 1 and depending on whether the ordered product is in stock the successful orders increases (__sum_succparag__), in the total cost (__sum_price__) the price of the selected product is added, the product stock (__item.count__) decreases by 1 and the amount of the products sales (__temaxia.sell__) is increased. 
