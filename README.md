@@ -32,7 +32,7 @@ __Comments__ in the code of each file is also provided for better understanding 
 >- __makefile__
 
 >[!WARNING]
->This program can <ins> only </ins> be run in a UNIX based system with the gcc compiler installed and Makefile support. 
+>This program can __only__ be run in a UNIX based system with the gcc compiler installed and Makefile support. 
 >In order to run the program using any other compiler, you must modify the makefile contents accordingly.
 >In case your system lacks makefile support you can compile each file one by one seperately.
 
