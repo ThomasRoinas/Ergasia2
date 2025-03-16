@@ -49,7 +49,7 @@ make server-client
 ```
 ./server-client   
 ```
->Command to run the executable 
+>Command for running the executable 
 ```
 make clean
 ```
