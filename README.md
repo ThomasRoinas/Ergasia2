@@ -7,12 +7,12 @@ Code for creating inter-process communication (IPC) among server and client repl
 >[!NOTE]
 >This repository was made for showcasing my attempt at an assignemnt given durnig our Lab Programming UNIX course on inter-process communication (IPC) using pipelines.
 
->[!TIP]
->The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
-
 <h2 align="center">
    Code explanation
 </h2>
+
+>[!TIP]
+>The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
 
 The details for each product is declared in the structure __product__. The __init_catalog__ function is used for initializing an array containing 20 products and setting each detail to store a value. 
 
