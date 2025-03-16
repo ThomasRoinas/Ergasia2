@@ -2,10 +2,10 @@
    server-client-pipes 
 </h1>
 
+Code for creating inter-process communication (IPC) among server and client replicating an e-shop process. The inter-process comunication is done through pipes (pipeline) in a UNIX based system. 
+
 >[!NOTE]
 >This repository was made for showcasing my attempt at an assignemnt given durnig our Lab Programming UNIX course on inter-process communication (IPC) using pipelines.
-
-Code for creating inter-process communication (IPC) among server and client replicating an e-shop process. The inter-process comunication is done through pipes (pipeline) in a UNIX based system. 
 
 >[!TIP]
 >The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
