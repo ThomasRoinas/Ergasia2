@@ -2,8 +2,8 @@
 
 Code for creating inter-process communication (IPC) among server and client replicating an e-shop process. The inter-process comunication is done through pipes (pipeline) in a UNIX based system. 
 
-[!NOTE]
-The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile contains the code for compiling and running the program with the source code and header file attached.
+>[!NOTE]
+>The server and client code is implemented in one single file (server-client.c). The declaration of the functions and structs is done in the header file (server-client.h). Makefile >contains the code for compiling and running the program with the source code and header file attached.
 
 ## Code explanation ##
 
