@@ -23,6 +23,9 @@ Lastly, int the __main()__ function the product catalog array is intialized, the
 
 __Comments__ in the code of each file is also provided for better understanding of the contents.
 
+>[!NOTE]
+>Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
+
 <h2 align="center">
    Mandatory files 
 </h2>
@@ -44,5 +47,3 @@ make server-client
 
 make clean
 ``` 
->[!NOTE]
->Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
