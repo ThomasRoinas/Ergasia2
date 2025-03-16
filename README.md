@@ -30,6 +30,7 @@ __Comments__ in the code of each file is also provided for better understanding 
 >In order to run the program using any other compiler, you must modify the makefile contents accordingly.
 >In case your system lacks makefile support you can compile each file one by one seperately.
 
+<hr/>
 
 >[!IMPORTANT]
 >Mandatory files to run program as is
@@ -49,6 +50,9 @@ make server-client
 ./server-client   
 
 make clean
-``` 
+```
+
+<hr/>
+
 >[!NOTE]
 >Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
