@@ -27,12 +27,10 @@ __Comments__ in the code of each file is also provided for better understanding 
 >Another version of the code implemented with sockets is availiable [here](https://github.com/ThomasRoinas/server-client-sockets)
 
 >[!IMPORTANT]
->Mandatory files to run program
+>Mandatory files to run program as is
 >- __server-client.h__   
 >- __server-client.c__    
 >- __makefile__
-
->These files are needed to run the program in your system as is.
 
 <h2 align="center">
    Makefile instructions
