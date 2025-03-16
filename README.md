@@ -1,4 +1,6 @@
-# server-client-pipes #
+<p align="center">
+  # server-client-pipes #
+</p>
 
 Code for creating inter-process communication (IPC) among server and client replicating an e-shop process. The inter-process comunication is done through pipes (pipeline) in a UNIX based system. 
 
@@ -31,7 +33,6 @@ Comments in the code of each file is also provided for better understanding of t
 >These files are needed to run the program in your system as is.
 
 ## Makefile instructions ##
->Your system needs to support Makefile
 ```
 make server-client
 
