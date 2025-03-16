@@ -46,9 +46,11 @@ __Comments__ in the code of each file is also provided for better understanding 
 
 ```
 make server-client
-
+```
+```
 ./server-client   
-
+```
+```
 make clean
 ```
 
