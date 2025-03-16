@@ -31,7 +31,8 @@ Comments in the code of each file is also provided for better understanding of t
 >These files are needed to run the program in your system as is.
 
 ## Makefile instructions ##
-```Makefile
+>Your system needs to support Makefile
+```
 make server-client
 
 ./server-client   
