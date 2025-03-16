@@ -47,12 +47,15 @@ __Comments__ in the code of each file is also provided for better understanding 
 ```
 make server-client
 ```
+>Compiles the files attached and creating server-client as the executable
 ```
 ./server-client   
 ```
+>Command to run the executable 
 ```
 make clean
 ```
+>Removes unnecessary files created when compiling
 
 <hr/>
 
